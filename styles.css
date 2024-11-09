@@ -97,28 +97,33 @@ h2{
 nav {
   font-family: 'Itim', sans-serif;
   display: flex;
-  justify-content: center; /* Center the nav items */
-  background-color: #000; /* Keep the background black */
-  padding: 15px 0; /* Add padding for spacing */
-  width: 100%; /* Ensure the nav bar takes full width */
+  justify-content: center; /* Center the nav items horizontally */
+  background-color: #000; /* Black background */
+  padding: 10px 0; /* Vertical padding for spacing */
+  width: 100%; /* Ensure the nav bar spans the full width */
 }
 
+/* Navigation List */
 nav ul {
-  display: flex; /* Arrange items in a row */
+  display: flex; /* Arrange items in a row by default */
   list-style-type: none; /* Remove default list styling */
   padding: 0;
   margin: 0;
 }
 
 nav ul li {
-  padding: 0 15px; /* Add spacing between items */
+  padding: 0 15px; /* Horizontal padding between items */
 }
 
 nav ul li a {
-  color: white; /* Set text color to white */
+  color: white; /* Set link color to white */
   text-decoration: none; /* Remove underline from links */
-  font-size: 16px; /* Set default font size */
+  font-size: 16px; /* Default font size */
+  display: block; /* Make links block-level to improve clickability */
+  padding: 10px 0; /* Padding for better click targets */
 }
+
+
 
 @media screen and (max-width: 768px) {
   nav ul {
@@ -961,4 +966,40 @@ h4{
   color: #FFD700;
   margin-right: 10px;
   font-size: 18px;
+}
+/* Portrait Orientation (default behavior) */
+@media screen and (orientation: portrait) {
+  nav ul {
+    flex-direction: column; /* Stack links vertically on portrait */
+  }
+
+  main {
+    flex-direction: column; /* Stack sections vertically */
+  }
+}
+
+/* Landscape Orientation */
+@media screen and (orientation: landscape) {
+  nav ul {
+    flex-direction: row; /* Stack links horizontally on landscape */
+    justify-content: space-between; /* Space out the links */
+  }
+
+  main {
+    flex-direction: row; /* Display sections side by side */
+  }
+
+  main section {
+    flex: 1 1 48%; /* Allow for two sections to fit side by side */
+  }
+}
+/* Smaller devices */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Slightly smaller base font size on smaller devices */
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
 }
