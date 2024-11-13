@@ -24,6 +24,7 @@ function myFunction() {
   element.dataset.bsTheme =
     element.dataset.bsTheme == "light" ? "dark" : "light";
 }
+
 function stepFunction(event) {
   debugger;
   var element = document.getElementsByClassName("collapse");
@@ -56,16 +57,16 @@ function toggleDiscount() {
 }
 function getUserLocation() {
   if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          const userLocation = `Latitude: ${latitude}, Longitude: ${longitude}`;
-          document.getElementById('user-location').value = userLocation;
-      }, function(error) {
-          alert("Unable to retrieve your location. Please enter it manually.");
-      });
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const userLocation = `Latitude: ${latitude}, Longitude: ${longitude}`;
+      document.getElementById('user-location').value = userLocation;
+    }, function (error) {
+      alert("Unable to retrieve your location. Please enter it manually.");
+    });
   } else {
-      alert("Geolocation is not supported by this browser.");
+    alert("Geolocation is not supported by this browser.");
   }
 }
 function togglePaymentMethod() {
@@ -74,16 +75,16 @@ function togglePaymentMethod() {
 
   // Show or hide credit card information based on selected payment method
   var creditCardInfo = document.getElementById('credit-card-info');
-  
+
   if (paymentMethod === 'paypal') {
-      creditCardInfo.style.display = 'none'; // Hide credit card info when PayPal is selected
+    creditCardInfo.style.display = 'none'; // Hide credit card info when PayPal is selected
   } else {
-      creditCardInfo.style.display = 'block'; // Show credit card info when Credit Card is selected
+    creditCardInfo.style.display = 'block'; // Show credit card info when Credit Card is selected
   }
 }
 
 // Initialize the page with the correct view based on the selected payment method
-window.onload = function() {
+window.onload = function () {
   togglePaymentMethod();
 };
 
@@ -106,18 +107,18 @@ function selectBundle(price, bundleName) {
 function updateBundlePrice() {
   // Get selected bundle price from the dropdown
   var bundlePrice = parseFloat(document.getElementById("bundleSelect").value);
-  
+
   if (bundlePrice === 0) {
-      // If no bundle is selected, exit the function (or reset values)
-      document.getElementById("subtotal").textContent = "0";
-      document.getElementById("tax").textContent = "0";
-      document.getElementById("total").textContent = "0";
-      return;
+    // If no bundle is selected, exit the function (or reset values)
+    document.getElementById("subtotal").textContent = "0";
+    document.getElementById("tax").textContent = "0";
+    document.getElementById("total").textContent = "0";
+    return;
   }
 
   // Calculate the tax (example: 5% tax)
   var tax = bundlePrice * 0.05;
-  
+
   // Calculate the total (Subtotal + Tax)
   var total = bundlePrice + tax;
 
@@ -126,18 +127,72 @@ function updateBundlePrice() {
   document.getElementById("tax").textContent = tax.toFixed(2);
   document.getElementById("total").textContent = total.toFixed(2);
 }
-  // Set theme on page load based on stored preference
-  window.addEventListener('load', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      // Default to light mode if no theme is set
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  });
-  function viewPaymentHistory() {
-    // Show the modal when the button is clicked
-    var myModal = new bootstrap.Modal(document.getElementById('paymentHistoryModal'));
-    myModal.show();
+// Set theme on page load based on stored preference
+window.addEventListener('load', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  } else {
+    // Default to light mode if no theme is set
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+});
+function viewPaymentHistory() {
+  // Show the modal when the button is clicked
+  var myModal = new bootstrap.Modal(document.getElementById('paymentHistoryModal'));
+  myModal.show();
 }
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+  event.preventDefault();  // Prevent form submission from reloading the page
+
+  // Simulate form submission logic (you can integrate with your backend here)
+  let form = document.getElementById('contact-form');
+  let formData = new FormData(form);
+
+  // Show the confirmation popup
+  document.getElementById('popup-modal').style.display = 'flex';
+
+  // Optionally reset the form
+  form.reset();
+});
+
+// Close the popup when the user clicks the "OK" button
+document.getElementById('close-modal').addEventListener('click', function () {
+  document.getElementById('popup-modal').style.display = 'none';
+});
+function toggleMobileNav() {
+  var mobileNav = document.querySelector('.mobile-nav');
+  mobileNav.classList.toggle('active');
+}
+    document.addEventListener('DOMContentLoaded', function() {
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const sliderContainer = document.querySelector('.slider-container');
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+
+        let currentIndex = 0;
+
+        // Show the next testimonial
+        function showNext() {
+            currentIndex = (currentIndex + 1) % testimonialItems.length; // Loop back to the first
+            updateSliderPosition();
+        }
+
+        // Show the previous testimonial
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length; // Loop back to the last
+            updateSliderPosition();
+        }
+
+        // Update the slider position
+        function updateSliderPosition() {
+            sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Event Listeners for buttons
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
+
+        // Optional: Autoplay feature
+        setInterval(showNext, 5000); // Change slide every 5 seconds
+    });

@@ -2,100 +2,129 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://img.icons8.com/color/48/000000/lightning-bolt.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>EBMS Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/lightning-bolt.png">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
-    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
 
 </head>
 
 <body data-bs-theme="dark">
-  <header>
-    <h1>EBMS</h1>
-    <nav>
-        <a href="index.html">Home</a>
-      <a href="OurServices.html">Our Services</a>
-      <a href="AboutUS.html">About Us</a>
-      <a href="ContactUs.html">Contact Us</a>
-      <a href="Payments.html">Payments</a>
-    </nav>
-    <div class="form-check form-switch mx-4">
-      <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
-        onclick="myFunction()" />
-      <div class="icon moon">🌜</div>
-  </header>
 
-  
-    <!-- Contact Section -->
-    <section class="contact_section py-5">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-6 mb-4">
-                  <div class="img-box">
-                      <img src="images/convenient-online-bill-payment-with-credit-card-laptop_1326100-5701.avif" 
-                           class="img-fluid" alt="Online bill payment illustration">
-                  </div>
+    <header>
+        <h1 class="logo">EBMS</h1>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="OurServices.html">Our Services</a>
+            <a href="AboutUS.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+            <a href="Payments.html">Payments</a>
+        </nav>
+    
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobileNav" class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="OurServices.html">Our Services</a>
+            <a href="AboutUS.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+            <a href="Payments.html">Payments</a>
+            <a href="Login.html">Login</a>
+        </nav>
+    
+        <a href="Login.html" class="login-button">Login</a> <!-- Moved outside of nav -->
+        
+        <div class="form-check form-switch mx-4">
+            <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked onclick="myFunction()" />
+            <div class="icon moon">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    
+        <!-- Mobile Navigation Toggle Button (Hamburger Menu) -->
+        <div class="mobile-nav-toggle" onclick="toggleMobileNav()">&#9776;</div>
+    </header>
+<!-- Contact Section -->
+<section class="contact_section py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Image Box with Original Image -->
+      <div class="col-md-6 mb-4">
+        <div class="img-box">
+          <img src="images/call-center-customer-service-tips-scaled.jpeg" 
+               class="img-fluid" alt="Customer Service Illustration">
+        </div>
+      </div>
+      <!-- Form Container -->
+      <div class="col-md-6 mx-auto">
+        <div class="form_container">
+          <div class="heading_container heading_center mb-4">
+            <h2>Get Help With Your Electric Bill</h2>
+            <p>Our customer support team is here to assist you with billing inquiries, payments, and more!</p>
+          </div>
+          <form action="">
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required />
+            </div>
+            <div class="row mb-3">
+              <div class="col-lg-6">
+                <input type="tel" class="form-control" placeholder="Phone Number" required />
               </div>
-              <div class="col-md-5 mx-auto">
-                  <div class="form_container">
-                      <div class="heading_container heading_center mb-4">
-                          <h2>Don't Hesitate to Contact Us</h2>
-                      </div>
-                      <form action="">
-                          <div class="mb-3">
-                              <input type="text" class="form-control" placeholder="Your Name" required />
-                          </div>
-                          <div class="row mb-3">
-                              <div class="col-lg-6">
-                                  <input type="tel" class="form-control" placeholder="Phone Number" required />
-                              </div>
-                              <div class="col-lg-6">
-                                  <select name="" id="" class="form-select" required>
-                                      <option value="" disabled selected>Select Service</option>
-                                      <option value="">Service 1</option>
-                                      <option value="">Service 2</option>
-                                      <option value="">Service 3</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="mb-3">
-                              <input type="email" class="form-control" placeholder="Email" required />
-                          </div>
-                          <div class="mb-3">
-                              <textarea class="form-control" placeholder="Message" rows="3" required></textarea>
-                          </div>
-                          <div class="btn_box text-center">
-                              <button type="submit" class="btn btn-primary">SEND</button>
-                          </div>
-                      </form>
-                  </div>
+              <div class="col-lg-6">
+                <select class="form-select" required>
+                  <option value="" disabled selected>Select Service</option>
+                  <option value="billing">Billing Inquiry</option>
+                  <option value="payment">Payment Assistance</option>
+                  <option value="service">Electricity Service</option>
+                </select>
               </div>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email" required />
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" placeholder="Please describe your issue" rows="3" required></textarea>
+            </div>
+            <div class="btn_box text-center">
+              <button type="submit" class="btn btn-primary">Submit Request</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer>
+
+  <footer>
+      <div class="footer-content">
+          <div class="footer-text">
+              &copy; <span id="year"></span> EBMS Platform<br>
+              Beirut, Lebanon | Verdun Street.<br>
+              Contact us: support@ebmsplatform.com
+          </div>
+          <div class="footer-social">
+              <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+              <a href="https://youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="footer-links">
+              <a href="#">Terms of Service</a> | 
+              <a href="#">Privacy Policy</a> | 
+              <a href="ContactUs.html">Help Center</a>
           </div>
       </div>
-  </section>
-  <footer>
-    &copy; <span id="year"></span> EBMS Platform, All Rights Reserved.
-    <br> Beirut, Lebanon | Verdun Street.
-    <div id="logoleft">
-      <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 10px;"><i
-          class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 10px;"><i
-          class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 10px;"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://youtube.com" target="_blank" style="color: white; margin: 0 10px;"><i
-          class="fab fa-youtube"></i></a>
-    </div>
-  </footer>
+</footer>
+   </footer>
   <script src="script.js"></script> <!-- Link to JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -103,6 +132,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
     integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
     crossorigin="anonymous"></script>
+    <script src="/assets/js/theme.js" defer></script>
 </body>
 
 </html>

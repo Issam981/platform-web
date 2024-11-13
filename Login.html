@@ -6,339 +6,379 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <title>Login Page</title>
-    <link rel="icon" type="image/x-icon" href="/images/Screenshot (14).png">
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/lightning-bolt.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <style>
-        @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-
-        html,
-        body {
-            position: relative;
-            min-height: 100vh;
-            background-color: #51514d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .form-structor {
-            background-color: #222;
-            border-radius: 15px;
-            height: 550px;
-            width: 350px;
-            position: relative;
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Header for the logo */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the logo container */
+        .logo-container {
+            font-size: 100px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
+        }
 
-            &::after {
-                content: '';
-                opacity: .8;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                background-image: url('/images/login.avif');
+        /* Font Awesome icon */
+        .logo {
+            position: relative;
+            animation: lighting 1.5s infinite alternate, glow 1.5s ease-in-out infinite;
+        }
+
+        /* Lighting animation */
+        @keyframes lighting {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5);
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.7);
+                transform: scale(1.2);
+            }
+        }
+
+        /* Glow effect */
+        @keyframes glow {
+            0% {
+                color: #ffcc00;
+                text-shadow: 0 0 5px rgba(255, 204, 0, 0.5), 0 0 10px rgba(255, 204, 0, 0.7), 0 0 15px rgba(255, 204, 0, 1);
+            }
+            50% {
+                color: #ff6600;
+                text-shadow: 0 0 20px rgba(255, 102, 0, 0.5), 0 0 30px rgba(255, 102, 0, 0.7), 0 0 40px rgba(255, 102, 0, 1);
+            }
+            100% {
+                color: #ff0000;
+                text-shadow: 0 0 25px rgba(255, 0, 0, 0.5), 0 0 35px rgba(255, 0, 0, 0.7), 0 0 50px rgba(255, 0, 0, 1);
+            }
+        }
+
+        /* Main container for form */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            max-width: 900px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        /* Form container styles */
+        .form-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Tab navigation */
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .tab {
+            background-color: #000;
+            padding: 10px 20px;
+            width: 48%;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .tab:hover {
+            background-color: #444;
+        }
+
+        .form {
+            display: block;
+            width: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        label {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #000;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #333;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .switch-form span {
+            color: #000;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Additional login options */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .social-button {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .google {
+            background-color: #db4437;
+            color: white;
+        }
+
+        .apple {
+            background-color: #333;
+            color: white;
+        }
+
+        .microsoft {
+            background-color: #00a4ef;
+            color: white;
+        }
+
+        .social-button:hover {
+            opacity: 0.8;
+        }
+
+        .social-button:focus {
+            outline: none;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
             }
 
-            .signup {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                width: 65%;
-                z-index: 5;
-                -webkit-transition: all .3s ease;
-
-
-                &.slide-up {
-                    top: 5%;
-                    -webkit-transform: translate(-50%, 0%);
-                    -webkit-transition: all .3s ease;
-                }
-
-                &.slide-up .form-holder,
-                &.slide-up .submit-btn {
-                    opacity: 0;
-                    visibility: hidden;
-                }
-
-                &.slide-up .form-title {
-                    font-size: 1em;
-                    cursor: pointer;
-                }
-
-                &.slide-up .form-title span {
-                    margin-right: 5px;
-                    opacity: 1;
-                    visibility: visible;
-                    -webkit-transition: all .3s ease;
-                }
-
-                .form-title {
-                    color: #fff;
-                    font-size: 1.7em;
-                    text-align: center;
-
-                    span {
-                        color: rgba(0, 0, 0, 0.4);
-                        opacity: 0;
-                        visibility: hidden;
-                        -webkit-transition: all .3s ease;
-                    }
-                }
-
-                .form-holder {
-                    border-radius: 15px;
-                    background-color: #fff;
-                    overflow: hidden;
-                    margin-top: 50px;
-                    opacity: 1;
-                    visibility: visible;
-                    -webkit-transition: all .3s ease;
-
-                    .input {
-                        border: 0;
-                        outline: none;
-                        box-shadow: none;
-                        display: block;
-                        height: 30px;
-                        line-height: 30px;
-                        padding: 8px -15px;
-                        border-bottom: 1px solid #eee;
-                        width: 100%;
-                        font-size: 12px;
-
-                        &:last-child {
-                            border-bottom: 0;
-                        }
-
-                        &::-webkit-input-placeholder {
-                            color: rgba(0, 0, 0, 0.4);
-                        }
-                    }
-                }
-
-                .submit-btn {
-                    background-color: rgba(0, 0, 0, 0.4);
-                    color: rgba(256, 256, 256, 0.7);
-                    border: 0;
-                    border-radius: 15px;
-                    display: block;
-                    margin: 15px auto;
-                    padding: 15px 45px;
-                    width: 100%;
-                    font-size: 13px;
-                    font-weight: bold;
-                    cursor: pointer;
-                    opacity: 1;
-                    visibility: visible;
-                    -webkit-transition: all .3s ease;
-
-                    &:hover {
-                        transition: all .3s ease;
-                        background-color: rgba(0, 0, 0, 0.8);
-                    }
-                }
+            h2 {
+                font-size: 24px;
             }
 
-            .login {
-                position: absolute;
-                top: 20%;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #fff;
-                z-index: 5;
-                -webkit-transition: all .3s ease;
+            .tabs {
+                flex-direction: column;
+                width: 100%;
+            }
 
-                &::before {
-                    content: '';
-                    position: absolute;
-                    left: 50%;
-                    top: -20px;
-                    -webkit-transform: translate(-50%, 0);
-                    background-color: #fff;
-                    width: 200%;
-                    height: 250px;
-                    border-radius: 50%;
-                    z-index: 4;
-                    -webkit-transition: all .3s ease;
-                }
+            .tab {
+                width: 100%;
+                margin-bottom: 10px;
+            }
 
-                .center {
-                    position: absolute;
-                    top: calc(50% - 10%);
-                    left: 50%;
-                    -webkit-transform: translate(-50%, -50%);
-                    width: 65%;
-                    z-index: 5;
-                    -webkit-transition: all .3s ease;
+            .input-group {
+                margin-bottom: 15px;
+            }
 
-                    .form-title {
-                        color: #000;
-                        font-size: 1.7em;
-                        text-align: center;
-
-                        span {
-                            color: rgba(0, 0, 0, 0.4);
-                            opacity: 0;
-                            visibility: hidden;
-                            -webkit-transition: all .3s ease;
-                        }
-                    }
-
-                    .form-holder {
-                        border-radius: 15px;
-                        background-color: #fff;
-                        border: 1px solid #eee;
-                        overflow: hidden;
-                        margin-top: 50px;
-                        opacity: 1;
-                        visibility: visible;
-                        -webkit-transition: all .3s ease;
-
-                        .input {
-                            border: 0;
-                            outline: none;
-                            box-shadow: none;
-                            display: block;
-                            height: 30px;
-                            line-height: 30px;
-                            padding: 8px 0px;
-                            border-bottom: 1px solid #eee;
-                            width: 100%;
-                            font-size: 12px;
-
-                            &:last-child {
-                                border-bottom: 0;
-                            }
-
-                            &::-webkit-input-placeholder {
-                                color: rgba(0, 0, 0, 0.4);
-                            }
-                        }
-                    }
-
-                    .submit-btn {
-                        background-color: #6B92A4;
-                        color: rgba(256, 256, 256, 0.7);
-                        border: 0;
-                        border-radius: 15px;
-                        display: block;
-                        margin: 15px auto;
-                        padding: 15px 45px;
-                        width: 100%;
-                        font-size: 13px;
-                        font-weight: bold;
-                        cursor: pointer;
-                        opacity: 1;
-                        visibility: visible;
-                        -webkit-transition: all .3s ease;
-
-                        &:hover {
-                            transition: all .3s ease;
-                            background-color: rgba(0, 0, 0, 0.8);
-                        }
-                    }
-                }
-
-                &.slide-up {
-                    top: 90%;
-                    -webkit-transition: all .3s ease;
-                }
-
-                &.slide-up .center {
-                    top: 10%;
-                    -webkit-transform: translate(-50%, 0%);
-                    -webkit-transition: all .3s ease;
-                }
-
-                &.slide-up .form-holder,
-                &.slide-up .submit-btn {
-                    opacity: 0;
-                    visibility: hidden;
-                    -webkit-transition: all .3s ease;
-                }
-
-                &.slide-up .form-title {
-                    font-size: 1em;
-                    margin: 0;
-                    padding: 0;
-                    cursor: pointer;
-                    -webkit-transition: all .3s ease;
-                }
-
-                &.slide-up .form-title span {
-                    margin-right: 5px;
-                    opacity: 1;
-                    visibility: visible;
-                    -webkit-transition: all .3s ease;
-                }
+            .btn {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="form-structor">
-        <div class="signup">
-            <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-            <div class="form-holder">
-                <input type="text" class="input" placeholder="  Name" />
-                <input type="email" class="input" placeholder="  Email" />
-                <input type="password" class="input" placeholder="  Password" />
-            </div>
-            <button class="submit-btn">Sign up</button>
+
+    <!-- Header with logo -->
+    <header>
+        <div class="logo-container">
+            <i class="fas fa-bolt logo"></i>
         </div>
-        <div class="login slide-up">
-            <div class="center">
-                <h2 class="form-title" id="login"><span>or</span>Log in</h2>
-                <div class="form-holder">
-                    <input type="email" class="input" placeholder="  Email" />
-                    <input type="password" class="input" placeholder="  Password" />
+    </header>
+
+    <!-- Form Container -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Welcome to Electric Billing</h2>
+            <p>Please log in to your account or sign up if you're new.</p>
+
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button id="loginTab" class="tab active" onclick="toggleForm('login')">Login</button>
+                <button id="signupTab" class="tab" onclick="toggleForm('signup')">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="form" action="#" method="POST">
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
                 </div>
-                <button class="submit-btn">Log in</button>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="switch-form">Don't have an account? <span onclick="toggleForm('signup')">Sign up</span></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="form hidden" action="#" method="POST">
+                <div class="input-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" placeholder="Create a password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="switch-form">Already have an account? <span onclick="toggleForm('login')">Login</span></p>
+            </form>
+
+            <!-- Social login options -->
+            <div class="social-buttons">
+                <button class="social-button google">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+                <button class="social-button apple">
+                    <i class="fab fa-apple"></i> Continue with Apple
+                </button>
+                <button class="social-button microsoft">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" width="20">
+                    Continue with Microsoft
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        console.clear();
-
-        const loginBtn = document.getElementById('login');
-        const signupBtn = document.getElementById('signup');
-
-        loginBtn.addEventListener('click', (e) => {
-            let parent = e.target.parentNode.parentNode;
-            Array.from(e.target.parentNode.parentNode.classList).find((element) => {
-                if (element !== "slide-up") {
-                    parent.classList.add('slide-up')
-                } else {
-                    signupBtn.parentNode.classList.add('slide-up')
-                    parent.classList.remove('slide-up')
-                }
-            });
-        });
-
-        signupBtn.addEventListener('click', (e) => {
-            let parent = e.target.parentNode;
-            Array.from(e.target.parentNode.classList).find((element) => {
-                if (element !== "slide-up") {
-                    parent.classList.add('slide-up')
-                } else {
-                    loginBtn.parentNode.parentNode.classList.add('slide-up')
-                    parent.classList.remove('slide-up')
-                }
-            });
-        });
+        function toggleForm(formType) {
+            if (formType === 'login') {
+                document.getElementById('loginForm').classList.remove('hidden');
+                document.getElementById('signupForm').classList.add('hidden');
+                document.getElementById('loginTab').classList.add('active');
+                document.getElementById('signupTab').classList.remove('active');
+            } else {
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('signupForm').classList.remove('hidden');
+                document.getElementById('loginTab').classList.remove('active');
+                document.getElementById('signupTab').classList.add('active');
+            }
+        }
     </script>
 
 </body>
-
 </html>

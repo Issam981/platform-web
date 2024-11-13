@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>EBMS Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://img.icons8.com/color/48/000000/lightning-bolt.png">
@@ -15,82 +15,184 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
-    
-    </head>
+
+</head>
 
 <body data-bs-theme="dark">
+
     <header>
-      <h1>EBMS</h1>
-        <nav>
-          <a href="index.html">Home</a>
+        <h1 class="logo">EBMS</h1>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
             <a href="OurServices.html">Our Services</a>
             <a href="AboutUS.html">About Us</a>
             <a href="ContactUs.html">Contact Us</a>
             <a href="Payments.html">Payments</a>
         </nav>
+    
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobileNav" class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="OurServices.html">Our Services</a>
+            <a href="AboutUS.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+            <a href="Payments.html">Payments</a>
+            <a href="Login.html">Login</a>
+        </nav>
+    
+        <a href="Login.html" class="login-button">Login</a> <!-- Moved outside of nav -->
+        
         <div class="form-check form-switch mx-4">
-            <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
-                onclick="myFunction()" />
-            <div class="icon moon">🌜</div>
-
-    </header>
-
-    <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-      <div class="heading_container heading_center">
-        <h2>
-          About <span>Us</span>
-        </h2>
-        <p>
-            We are a technology-driven company dedicated to transforming traditional 
-            billing processes into efficient, user-friendly digital solutions. 
-        </p>
-      </div>
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="images/images (2).png" alt="">
-          </div>
+            <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked onclick="myFunction()" />
+            <div class="icon moon">
+                <i class="fas fa-moon"></i>
+            </div>
         </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <h3>
-              We Are EBMS
-          </h3>
-          <p>
-              Our Electric Bill Management System offers a seamless platform that simplifies bill payments, providing residents with an easy way to view, track, and pay their bills online. 
-              By integrating secure payment gateways, automated billing based on actual meter readings, and real-time reporting, 
-              we ensure accuracy, convenience, and transparency for all users. 
-              Committed to sustainability, we reduce paper waste by eliminating the need for printed bills, making our solution environmentally friendly.
-          </p>
-          <p>
-              Established in 2020, our team began with just five dedicated members, and we have continued to grow bigger and bigger since then. 
-              Our goal is to provide a system that benefits both residents and building management, creating a hassle-free and reliable experience for everyone involved.
-          </p>
+    
+        <!-- Mobile Navigation Toggle Button (Hamburger Menu) -->
+        <div class="mobile-nav-toggle" onclick="toggleMobileNav()">&#9776;</div>
+    </header>
+  
+      <!-- About Section -->
+      <section class="about_section layout_padding">
+          <div class="container">
+              <div class="heading_container heading_center">
+                  <h2>Learn More About <span>Us</span></h2>
+                  <p>At EBMS, we're committed to reshaping the future of utility bill management with innovative digital solutions.</p>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="img-box">
+                          <img src="images/images (2).png" alt="EBMS Team" class="about-section-img">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="detail-box">
+                          <h3>Our Mission at EBMS</h3>
+                          <p>At EBMS, our goal is simple – to streamline the billing process, offering a seamless, paperless experience for residents and property managers. Our platform leverages the latest in secure technology to allow users to track, manage, and pay their bills with ease and transparency.</p>
+                          <p>Founded in 2020 by a passionate team of technology experts, we've quickly grown into a leading provider of electric bill management services. Our commitment to sustainability drives us to eliminate paper waste and deliver a reliable digital service to our users.</p>
+                      </div>
+                  </div>
+              </div>
+
+
+              <!-- team section -->
+  <section class="team_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container heading_center">
+        <h2 class="">
+          Our <span> Team</span>
+        </h2>
+      </div>
+
+      <div class="team_container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/iconimg.avif" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Issam Al-Muallem
+                </h5>
+                
+                 Admin
+                 <p><a href="mailto:issammuallem@gmail.com">issammuallem@gmail.com</a></p>
+                
+              </div>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/iconimgsg.png" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                    Maria Al-Ahmad
+                </h5>
+                
+                  Admin
+                  <p><a href="mailto:mariaalahmad@gmail.com">mariaalahmad@gmail.com</a></p>
+                
+              </div>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- end team section -->
 
-  <!-- end about section -->
+<div> <h1>Our Location Map</h1>  
+  <div class="map-container">
+    <iframe 
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDxjADa0fb_T2zU8_wWrm5hJuzmiFJrDcI&q=Verdun+Street,Beirut,Lebanon" 
+        allowfullscreen>
+    </iframe>
+</div>
 
+  <footer>
     <footer>
-      &copy; <span id="year"></span> EBMS Platform, All Rights Reserved.
-        <br> Beirut, Lebanon | Verdun Street.
-        <div id="logoleft">
-            <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 10px;"><i
-                    class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 10px;"><i
-                    class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 10px;"><i
-                    class="fab fa-facebook"></i></a>
-            <a href="https://youtube.com" target="_blank" style="color: white; margin: 0 10px;"><i
-                    class="fab fa-youtube"></i></a>
+        <div class="footer-content">
+            <div class="footer-text">
+                &copy; <span id="year"></span> EBMS Platform<br>
+                Beirut, Lebanon | Verdun Street.<br>
+                Contact us: support@ebmsplatform.com
+            </div>
+            <div class="footer-social">
+                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a> | 
+                <a href="ContactUs.html">Help Center</a>
+            </div>
         </div>
     </footer>
+    </footer>
+
     <script src="script.js"></script> <!-- Link to JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -98,6 +200,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
+        <script src="/assets/js/theme.js" defer></script>
 </body>
 
 </html>
